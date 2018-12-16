@@ -7,6 +7,7 @@ import './gslib/infoscreen.dart';
 void main() => runApp(DepApp());
 
 class DepApp extends StatelessWidget {
+  bool runCover = false;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,32 @@ class DepApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DepAppState(),
+      // home: DepAppState(),
+      home: runCover ? DepAppState() : CoverPage(),
+    );
+  }
+}
+
+// Login Page is for multiple placees
+class CoverPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("test cover"),
+      ),
+      body: Center(
+        child: new FlatButton(
+          child: Text("LOGIN"),
+          onPressed: () {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    fullscreenDialog: false,
+                    builder: (context) => DepAppState()));
+          },
+        ),
+      ),
     );
   }
 }
@@ -125,7 +151,8 @@ class _HomeDepAppState extends State<DepAppState> {
                                 context,
                                 new MaterialPageRoute(
                                     fullscreenDialog: false,
-                                    builder: (context) => InfoScreen(depMessage[index], index)));
+                                    builder: (context) =>
+                                        InfoScreen(depMessage[index], index)));
                             print('--------------');
                             /*        builder: (context) =>
                                         Text("New Page and Can Roll Back"))); */
