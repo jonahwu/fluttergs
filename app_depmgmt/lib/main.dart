@@ -33,15 +33,22 @@ class DepApp extends StatelessWidget {
 
 // Login Page is for multiple placees
 class CoverPage extends StatelessWidget {
+  final imageUrl = "graphics/junmein.jpg";
+     // "https://drive.google.com/file/d/1rmcbdJZexCvt2NOeBBAnolvD-WmAtgUI/view?usp=sharing";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("test cover"),
+        title: Text("test1 cover"),
       ),
       body: Center(
         child: new FlatButton(
-          child: Text("LOGIN"),
+          //child: Image.network(imageUrl),
+          //child: Image.file(File("assets/graphics/junmein.jpg")),
+          //child: Ink.image(image: AssetImage('graphics/junmein.jpg')),
+          child: new Image.asset('assets/jj.jpg'),
+          //child: Text("LOGIN"),
           onPressed: () {
             Navigator.push(
                 context,
