@@ -47,7 +47,7 @@ class CoverPage extends StatelessWidget {
           //child: Image.network(imageUrl),
           //child: Image.file(File("assets/graphics/junmein.jpg")),
           //child: Ink.image(image: AssetImage('graphics/junmein.jpg')),
-          child: new Image.asset('assets/jj.jpg'),
+          child: new Image.asset('assets/jj.png'),
           //child: Text("LOGIN"),
           onPressed: () {
             Navigator.push(
