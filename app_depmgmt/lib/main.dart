@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import './gslib/gstool.dart';
 import './gslib/textcell.dart';
+import './gslib/imagecell.dart';
+
 import 'dart:io';
 import './gslib/infoscreen.dart';
 
 void main() => runApp(DepApp());
 
 class DepApp extends StatelessWidget {
-  bool runCover = false;
+  bool runCover = true;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -26,15 +28,40 @@ class DepApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: DepAppState(),
-      home: runCover ? DepAppState() : CoverPage(),
+      home: runCover ? CoverPageColumn() : DepAppState(),
     );
+  }
+}
+
+// Login Page is for multiple placees
+// if just one selection, by pass the CoverPageColumn
+// loading name and id 
+class CoverPageColumn extends StatelessWidget {
+  final imageUrl = "graphics/junmein.jpg";
+  // "https://drive.google.com/file/d/1rmcbdJZexCvt2NOeBBAnolvD-WmAtgUI/view?usp=sharing";
+
+  @override
+  Widget build(BuildContext context) {
+    // final List<String> facMgmt = ["department", "hometown", "school"];
+    final List<String> facMgmt = ["department"];
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("test1 cover"),
+        ),
+        body: ListView.builder(
+          itemCount: facMgmt.length,
+          itemBuilder: (context, index) {
+            return ImageCell(facMgmt[index]);
+          },
+        ));
   }
 }
 
 // Login Page is for multiple placees
 class CoverPage extends StatelessWidget {
   final imageUrl = "graphics/junmein.jpg";
-     // "https://drive.google.com/file/d/1rmcbdJZexCvt2NOeBBAnolvD-WmAtgUI/view?usp=sharing";
+  // "https://drive.google.com/file/d/1rmcbdJZexCvt2NOeBBAnolvD-WmAtgUI/view?usp=sharing";
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +71,6 @@ class CoverPage extends StatelessWidget {
       ),
       body: Center(
         child: new FlatButton(
-          //child: Image.network(imageUrl),
-          //child: Image.file(File("assets/graphics/junmein.jpg")),
-          //child: Ink.image(image: AssetImage('graphics/junmein.jpg')),
           child: new Image.asset('assets/jj.png'),
           //child: Text("LOGIN"),
           onPressed: () {
@@ -77,12 +101,15 @@ class DepAppState extends StatefulWidget {
 }
 
 class _HomeDepAppState extends State<DepAppState> {
-  List<String> depMessage = ['message1', 'message2'];
+  List<String> depMessage = ['Welcome To GS Management','message1', 'message2'];
   bool _loading = true;
 
   void _FetchData() async {
     print('into local fetch data');
-    depMessage.add("adding one from FetchData");
+    //depMessage.add("adding one from FetchData");
+    // add will adding to the final of list
+    // using insert can put the data to first element, people can read it at first cell
+    depMessage.insert(0, 'test');
     // sleep(const Duration(seconds: 3));
   }
 
