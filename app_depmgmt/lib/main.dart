@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import './gslib/gstool.dart';
 import './gslib/textcell.dart';
 import './gslib/imagecell.dart';
-
-import 'dart:io';
+import 'dart:io' as io;
 import './gslib/infoscreen.dart';
+import 'dart:async';
 
 void main() => runApp(DepApp());
 
@@ -33,12 +33,14 @@ class DepApp extends StatelessWidget {
   }
 }
 
+
 // Login Page is for multiple placees
 // if just one selection, by pass the CoverPageColumn
-// loading name and id 
+// loading name and id
 class CoverPageColumn extends StatelessWidget {
   final imageUrl = "graphics/junmein.jpg";
   // "https://drive.google.com/file/d/1rmcbdJZexCvt2NOeBBAnolvD-WmAtgUI/view?usp=sharing";
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,11 @@ class DepAppState extends StatefulWidget {
 }
 
 class _HomeDepAppState extends State<DepAppState> {
-  List<String> depMessage = ['Welcome To GS Management','message1', 'message2'];
+  List<String> depMessage = [
+    'Welcome To GS Management',
+    'message1',
+    'message2'
+  ];
   bool _loading = true;
 
   void _FetchData() async {
@@ -127,11 +133,7 @@ class _HomeDepAppState extends State<DepAppState> {
     });
   }
 
-  @override
-  void didUpdateWidget(DepAppState oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-  }
+ 
 
   @override
   Widget build(BuildContext context) {

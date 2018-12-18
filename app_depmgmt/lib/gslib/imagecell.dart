@@ -25,25 +25,4 @@ class ImageCell extends StatelessWidget {
   }
 }
 
-class ImageCellOld extends StatelessWidget {
-  //final List<String> fm;
-  //ImageCell(this.fm);
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        new FlatButton(
-          child: new Image.asset('assets/jj.png'),
-        ),
-        new FlatButton(
-          child: new Image.asset('assets/jj.png'),
-        ),
-        new FlatButton(
-          child: new Image.asset('assets/jj.png'),
-        )
-      ],
-    );
-  }
-}
+
